@@ -29,7 +29,7 @@ main() {
     if is_macos; then
         action "Applying preferences (macOS)"
         bash "macos/macos.sh"
-    elif is_arch; then
+    elif is_arch_linux; then
         action "Applying preferences (Arch Linux)"
         bash "arch/arch.sh"
     elif is_debian; then
