@@ -73,7 +73,7 @@ main() {
 
     # Colorschemes
 
-    bash ../colorschemes/gruvbox.sh
+    bash ../colorschemes/macos/gruvbox.sh
     # bash ../colorschemes/nord.sh
     # bash ../colorschemes/catppuccin.sh
 

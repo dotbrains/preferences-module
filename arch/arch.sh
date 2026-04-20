@@ -33,7 +33,7 @@ main() {
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Colorschemes
-    bash ../colorschemes/gruvbox.sh
+    bash ../colorschemes/arch/gruvbox.sh
     # bash ../colorschemes/nord.sh
     # bash ../colorschemes/catppuccin.sh
 
