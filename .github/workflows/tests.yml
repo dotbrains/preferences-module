@@ -2,6 +2,10 @@ name: Tests
 
 on: [push, pull_request]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     name: Test on ${{ matrix.os }}
@@ -11,6 +15,7 @@ jobs:
       fail-fast: false
 
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
 
     steps:
       - name: Checkout repository
