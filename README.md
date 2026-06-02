@@ -2,7 +2,7 @@
 
 [![Lint](https://github.com/dotbrains/preferences-module/actions/workflows/lint.yml/badge.svg)](https://github.com/dotbrains/preferences-module/actions/workflows/lint.yml)
 [![Tests](https://github.com/dotbrains/preferences-module/actions/workflows/tests.yml/badge.svg)](https://github.com/dotbrains/preferences-module/actions/workflows/tests.yml)
-[![License: PolyForm Shield 1.0.0](https://img.shields.io/badge/License-PolyForm%20Shield%201.0.0-blue.svg)](https://polyformproject.org/licenses/shield/1.0.0/)
+[![License: PolyForm Shield 1.0.0](https://img.shields.io/badge/License-PolyForm%20Shield%201.0.0-blue.svg)](https://polyformproject.org/licenses/shield/1.0.0)
 
 Multi-OS system preferences configuration with support for macOS, Arch Linux, and Debian.
 
@@ -148,5 +148,5 @@ common operations.
 
 ## License
 
-Licensed under [PolyForm Shield 1.0.0](https://polyformproject.org/licenses/shield/1.0.0/).
+Licensed under [PolyForm Shield 1.0.0](https://polyformproject.org/licenses/shield/1.0.0).
 See [LICENSE](LICENSE) for details.
