@@ -1,0 +1,9 @@
+id = "arch"
+trust = "first-party"
+network = false
+requires_sudo = false
+writes = ["~/.config", "~/Library/Preferences"]
+rollback = "partial"
+
+[adapters.rcm]
+path = "."
