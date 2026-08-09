@@ -122,6 +122,33 @@ bash universal/universal.sh
 
 1. Add cross-platform configurations to `universal/universal.sh`
 
+### Nix Provisioning (nix-darwin)
+
+The macOS preferences are also available declaratively for blueprints
+using `mode = "nix"` or `mode = "hybrid"` with the `nix-darwin` adapter.
+Each `nix-darwin.nix` file mirrors its shell-script counterpart 1:1:
+
+- `macos/nix-darwin.nix` — aggregate (imports system and apps)
+- `macos/system/nix-darwin.nix` — dock, keyboard, trackpad,
+  screenshots, language, UI/UX, Touch ID for sudo
+- `macos/apps/nix-darwin.nix` — Finder, Safari, App Store, Activity
+  Monitor, Messages, Mail, Maps, Photos, TextEdit
+- `macos/apps/terminal/nix-darwin.nix` — Terminal
+
+Typed `system.defaults` options are used where nix-darwin provides
+them; other domains go through `system.defaults.CustomUserPreferences`,
+and the few imperative leftovers (host name, ByHost domains, PlistBuddy
+edits of nested Finder plist keys) run as activation scripts.
+
+Requirements and caveats:
+
+- nix-darwin 25.05 or newer, with `system.primaryUser` set by the
+  blueprint
+- Safari preferences require Full Disk Access for the terminal running
+  `darwin-rebuild` (the same constraint applies to `safari.sh`)
+- The shell scripts remain the source of truth for rcm mode; when
+  changing a preference, update both the script and its Nix mirror
+
 ### Adding New OS Support
 
 1. Create new directory: `fedora/`, `opensuse/`, etc.

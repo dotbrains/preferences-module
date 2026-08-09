@@ -7,3 +7,10 @@ rollback = "partial"
 
 [adapters.rcm]
 path = "."
+
+[adapters.nix-darwin]
+path = "macos/nix-darwin.nix"
+platforms = ["macos"]
+requires_root = false
+secrets = false
+reboot_required = true
