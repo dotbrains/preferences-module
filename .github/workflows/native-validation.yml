@@ -11,3 +11,12 @@ jobs:
       - uses: actions/checkout@v5
       - name: Validate
         run: scripts/validate.sh --all
+
+  nix-adapters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+      - name: Validate Nix adapters against real option schemas
+        run: scripts/validate-nix.sh
