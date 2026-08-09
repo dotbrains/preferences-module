@@ -149,6 +149,27 @@ Requirements and caveats:
 - The shell scripts remain the source of truth for rcm mode; when
   changing a preference, update both the script and its Nix mirror
 
+### Nix Provisioning (Linux)
+
+Linux blueprints get the same treatment through the `home-manager` and
+`nixos` adapters:
+
+- `arch/home-manager.nix` — mirrors `arch.sh`
+- `debian/home-manager.nix` — mirrors `debian.sh` (home-manager runs
+  standalone on Debian/Ubuntu)
+- `universal/home-manager.nix` and `universal/nixos.nix` — mirror
+  `universal.sh` (NixOS hosts fall through to the universal
+  preferences, matching `preferences.sh` routing)
+
+The Linux shell scripts currently contain no preferences (their bodies
+are TODOs), so these modules intentionally declare nothing yet; they
+exist so nix and hybrid blueprints resolve the module without warnings
+and to mark where declarative mirrors go. The Linux equivalents of the
+macOS `system.defaults` options are `dconf.settings` (GNOME/gsettings),
+`xdg.configFile` (KDE, i3, XFCE), and `gtk.*` in home-manager. The same
+rule applies: when adding a preference to a script, add its declarative
+mirror to the matching Nix file.
+
 ### Adding New OS Support
 
 1. Create new directory: `fedora/`, `opensuse/`, etc.

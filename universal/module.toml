@@ -7,3 +7,17 @@ rollback = "partial"
 
 [adapters.rcm]
 path = "."
+
+[adapters.home-manager]
+path = "home-manager.nix"
+platforms = ["linux", "macos"]
+requires_root = false
+secrets = false
+reboot_required = false
+
+[adapters.nixos]
+path = "nixos.nix"
+platforms = ["nixos"]
+requires_root = false
+secrets = false
+reboot_required = false

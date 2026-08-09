@@ -7,3 +7,10 @@ rollback = "partial"
 
 [adapters.rcm]
 path = "."
+
+[adapters.home-manager]
+path = "home-manager.nix"
+platforms = ["linux"]
+requires_root = false
+secrets = false
+reboot_required = false
