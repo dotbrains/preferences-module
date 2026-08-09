@@ -161,14 +161,20 @@ Linux blueprints get the same treatment through the `home-manager` and
   `universal.sh` (NixOS hosts fall through to the universal
   preferences, matching `preferences.sh` routing)
 
-The Linux shell scripts currently contain no preferences (their bodies
-are TODOs), so these modules intentionally declare nothing yet; they
-exist so nix and hybrid blueprints resolve the module without warnings
-and to mark where declarative mirrors go. The Linux equivalents of the
-macOS `system.defaults` options are `dconf.settings` (GNOME/gsettings),
+The arch and debian scripts apply GNOME preferences via `gsettings`
+(keyboard repeat and touchpad behavior, mirroring the macOS choices),
+and their `home-manager.nix` files carry the same settings as
+`dconf.settings`. `universal.sh` currently contains no preferences, so
+its Nix mirrors declare nothing yet. The Linux equivalents of the macOS
+`system.defaults` options are `dconf.settings` (GNOME/gsettings),
 `xdg.configFile` (KDE, i3, XFCE), and `gtk.*` in home-manager. The same
 rule applies: when adding a preference to a script, add its declarative
 mirror to the matching Nix file.
+
+All Nix adapters are gated in CI: `scripts/validate-nix.sh` parses
+every `.nix` file and evaluates the modules against the real
+nix-darwin, home-manager, and NixOS option schemas
+(`tests/nix/eval.nix`).
 
 ### Adding New OS Support
 
