@@ -1,6 +1,8 @@
 #!/bin/bash
 
-source "$HOME/set-me-up/dotfiles/utilities/utilities.sh"
+source "$HOME/set-me-up/dotfiles/utilities/import.sh"
+
+smu::import base
 
 ask_for_sudo
 
