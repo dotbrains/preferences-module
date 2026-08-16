@@ -6,6 +6,7 @@
 #
 # Multi-OS preferences setup with support for:
 # - macOS: System preferences, Finder, Dock, Safari, Terminal, etc.
+# - Omarchy: Hyprland/waybar preferences
 # - Arch Linux: Desktop environment preferences
 # - Debian/Ubuntu: GNOME/KDE preferences
 # - Universal: Cross-platform application preferences
@@ -15,7 +16,7 @@
 declare current_dir &&
     current_dir="$(dirname "${BASH_SOURCE[0]}")" &&
     cd "${current_dir}" &&
-    source /dev/stdin <<<"$(curl -s "https://raw.githubusercontent.com/dotbrains/utilities/v1.2.0/import.sh")"
+    source /dev/stdin <<<"$(curl -s "https://raw.githubusercontent.com/dotbrains/utilities/v1.3.0/import.sh")"
 
 smu::import base
 smu::import system
@@ -29,9 +30,16 @@ main() {
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Apply preferences based on OS
+    #
+    # is_omarchy is checked before is_arch_linux: Omarchy is Arch-based,
+    # so an Omarchy machine satisfies both checks, and the more specific
+    # one must win.
     if is_macos; then
         action "Applying preferences (macOS)"
         bash "macos/macos.sh"
+    elif is_omarchy; then
+        action "Applying preferences (Omarchy)"
+        bash "omarchy/omarchy.sh"
     elif is_arch_linux; then
         action "Applying preferences (Arch Linux)"
         bash "arch/arch.sh"
