@@ -118,7 +118,10 @@ bash universal/universal.sh
 
 ### Entry Point Flow
 
-1. `preferences.sh` detects your OS using utilities functions (`is_macos`, `is_omarchy`, `is_arch_linux`, `is_debian`) — `is_omarchy` is checked before `is_arch_linux` since Omarchy is Arch-based and would otherwise match the generic Arch branch
+1. `preferences.sh` detects your OS using utilities functions (`is_macos`,
+   `is_omarchy`, `is_arch_linux`, `is_debian`) — `is_omarchy` is checked
+   before `is_arch_linux` since Omarchy is Arch-based and would otherwise
+   match the generic Arch branch
 2. Routes to appropriate OS-specific script
 3. OS-specific script applies all relevant preferences for that platform
 
