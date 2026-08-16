@@ -46,7 +46,7 @@ jobs:
 
       - name: Verify OS-specific scripts syntax
         run: |
-          for script in macos/*.sh arch/*.sh debian/*.sh universal/*.sh; do
+          for script in macos/*.sh omarchy/*.sh arch/*.sh debian/*.sh universal/*.sh; do
             if [ -f "$script" ]; then
               bash -n "$script" && echo "✓ $script syntax valid"
             fi

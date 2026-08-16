@@ -4,7 +4,7 @@
 [![Tests](https://github.com/dotbrains/preferences-module/actions/workflows/tests.yml/badge.svg)](https://github.com/dotbrains/preferences-module/actions/workflows/tests.yml)
 [![License: PolyForm Shield 1.0.0](https://img.shields.io/badge/License-PolyForm%20Shield%201.0.0-blue.svg)](https://polyformproject.org/licenses/shield/1.0.0)
 
-Multi-OS system preferences configuration with support for macOS, Arch Linux, and Debian.
+Multi-OS system preferences configuration with support for macOS, Omarchy, Arch Linux, and Debian.
 
 ## Structure
 
@@ -24,6 +24,10 @@ preferences/
 │   │   ├── trackpad.sh
 │   │   └── ...
 │   └── close_system_preferences_panes.applescript
+├── omarchy/                # Omarchy-specific preferences
+│   ├── omarchy.sh          # Entry point for Omarchy
+│   ├── cursor-size.sh      # Hyprland cursor size
+│   └── clock-format.sh     # Waybar 12-hour clock
 ├── arch/                  # Arch Linux-specific preferences
 │   └── arch.sh
 ├── debian/                # Debian-specific preferences
@@ -40,6 +44,13 @@ preferences/
 - **Supported Versions:** macOS Sonoma (14.5) and newer
 - **Applications:** Terminal, Finder, Safari, Mail, Messages, Photos, TextEdit, Activity Monitor, Maps, App Store
 - **System Settings:** Dock, Keyboard, Trackpad, Screen, Dashboard, Language & Region, UI/UX, Security
+
+### Omarchy
+
+- **Hyprland:** Cursor size (`XCURSOR_SIZE`/`HYPRCURSOR_SIZE`, applied immediately if Hyprland is running)
+- **Waybar:** 12-hour clock format
+- Deliberately does not touch theming/colorschemes — Omarchy ships its own theme system (Setup > Theme)
+- Ported from [nicholasadamou/omarchy-scripts](https://github.com/nicholasadamou/omarchy-scripts)
 
 ### Arch Linux
 
@@ -79,6 +90,12 @@ bash preferences.sh
 bash macos/macos.sh
 ```
 
+**Omarchy only:**
+
+```bash
+bash omarchy/omarchy.sh
+```
+
 **Arch Linux only:**
 
 ```bash
@@ -101,7 +118,10 @@ bash universal/universal.sh
 
 ### Entry Point Flow
 
-1. `preferences.sh` detects your OS using utilities functions (`is_macos`, `is_arch`, `is_debian`)
+1. `preferences.sh` detects your OS using utilities functions (`is_macos`,
+   `is_omarchy`, `is_arch_linux`, `is_debian`) — `is_omarchy` is checked
+   before `is_arch_linux` since Omarchy is Arch-based and would otherwise
+   match the generic Arch branch
 2. Routes to appropriate OS-specific script
 3. OS-specific script applies all relevant preferences for that platform
 
@@ -113,7 +133,7 @@ bash universal/universal.sh
 2. Make it executable: `chmod +x <script>.sh`
 3. Add call to `macos/macos.sh`
 
-**For Arch/Debian:**
+**For Omarchy/Arch/Debian:**
 
 1. Create preference scripts in respective OS directory
 2. Make executable and add to the OS-specific entry script
@@ -161,6 +181,9 @@ Linux blueprints get the same treatment through the `home-manager` and
   `universal.sh` (NixOS hosts fall through to the universal
   preferences, matching `preferences.sh` routing)
 
+`omarchy/` has no Nix mirror: Omarchy doesn't use Nix, so there's no
+declarative adapter to keep in sync for it.
+
 The arch and debian scripts apply GNOME preferences via `gsettings`
 (keyboard repeat and touchpad behavior, mirroring the macOS choices),
 and their `home-manager.nix` files carry the same settings as
@@ -185,7 +208,7 @@ nix-darwin, home-manager, and NixOS option schemas
 
 ## Benefits
 
-✅ **Multi-OS support**: Works across macOS, Arch Linux, and Debian
+✅ **Multi-OS support**: Works across macOS, Omarchy, Arch Linux, and Debian
 
 ✅ **Clear separation**: OS-specific configurations are isolated
 

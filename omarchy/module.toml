@@ -1,0 +1,9 @@
+id = "omarchy"
+trust = "first-party"
+network = false
+requires_sudo = false
+writes = ["~/.config"]
+rollback = "partial"
+
+[adapters.rcm]
+path = "."
