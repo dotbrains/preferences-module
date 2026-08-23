@@ -1,7 +1,7 @@
 # 'preferences' Module ⚙️
 
-[![Lint](https://github.com/dotbrains/preferences-module/actions/workflows/lint.yml/badge.svg)](https://github.com/dotbrains/preferences-module/actions/workflows/lint.yml)
-[![Tests](https://github.com/dotbrains/preferences-module/actions/workflows/tests.yml/badge.svg)](https://github.com/dotbrains/preferences-module/actions/workflows/tests.yml)
+[![Lint](https://github.com/smeltery/preferences-module/actions/workflows/lint.yml/badge.svg)](https://github.com/smeltery/preferences-module/actions/workflows/lint.yml)
+[![Tests](https://github.com/smeltery/preferences-module/actions/workflows/tests.yml/badge.svg)](https://github.com/smeltery/preferences-module/actions/workflows/tests.yml)
 [![License: PolyForm Shield 1.0.0](https://img.shields.io/badge/License-PolyForm%20Shield%201.0.0-blue.svg)](https://polyformproject.org/licenses/shield/1.0.0)
 
 Multi-OS system preferences configuration with support for macOS, Omarchy, Arch Linux, and Debian.
@@ -67,7 +67,7 @@ preferences/
 Download, review, then execute the script:
 
 ```bash
-source /dev/stdin <<<"$(curl -s "https://raw.githubusercontent.com/dotbrains/preferences-module/master/preferences.sh")"
+source /dev/stdin <<<"$(curl -s "https://raw.githubusercontent.com/smeltery/preferences-module/master/preferences.sh")"
 ```
 
 It should take a few minutes to install.
@@ -220,7 +220,7 @@ nix-darwin, home-manager, and NixOS option schemas
 
 ## Requirements
 
-This script requires the [dotbrains/utilities](https://github.com/dotbrains/utilities) functions for OS detection and
+This script requires the [smeltery/utilities](https://github.com/smeltery/utilities) functions for OS detection and
 common operations.
 
 ## License

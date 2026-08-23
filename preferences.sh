@@ -16,7 +16,7 @@
 declare current_dir &&
     current_dir="$(dirname "${BASH_SOURCE[0]}")" &&
     cd "${current_dir}" &&
-    source /dev/stdin <<<"$(curl -s "https://raw.githubusercontent.com/dotbrains/utilities/v1.3.0/import.sh")"
+    source /dev/stdin <<<"$(curl -s "https://raw.githubusercontent.com/smeltery/utilities/v1.3.0/import.sh")"
 
 smu::import base
 smu::import system
