@@ -67,7 +67,7 @@ preferences/
 Download, review, then execute the script:
 
 ```bash
-source /dev/stdin <<<"$(curl -s "https://raw.githubusercontent.com/smeltery/preferences-module/master/preferences.sh")"
+source /dev/stdin <<<"$(curl -s "https://raw.githubusercontent.com/smeltery/set-me-up-preferences-module/master/preferences.sh")"
 ```
 
 It should take a few minutes to install.
